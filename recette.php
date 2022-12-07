@@ -1,4 +1,8 @@
 <?php
+session_start();
+
+$nav_en_cours = 'Recette';
+
 // On vérifie si on a un id
 if (!isset($_GET["id"]) && !empty($_GET["id"])) {
   //Je n'ai pas d'id

@@ -1,10 +1,14 @@
 <?php
+session_start();
+
+$nav_en_cours = 'Recettes';
+
 //ON va chercher les recettes dans la base
 //On se connecte à la base
 require_once "includes/connect.php";
 
 //On écrit la requête
-$sql = "SELECT* FROM 'articles' ORDER BY 'created_at' DESC";
+$sql = "SELECT* FROM recettes ORDER BY 'created_at' DESC";
 
 //On execute la requête
 $requete = $db->query($sql);

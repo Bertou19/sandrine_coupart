@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Nunito";
   src: url("../fonts/Nunito-Regular.ttf");
@@ -26,6 +27,10 @@
   font-family: "Inter";
   src: url("../fonts/Inter-Regular.ttf");
 }
+body {
+  min-height: 100vh;
+}
+
 /*NAVBAR*/
 .navbarTitle {
   font-family: "NunitoExtraBoldItalic";
@@ -39,11 +44,40 @@
   font-size: 1rem;
 }
 
+@media (max-width: 767px) {
+  .navbarSecondTitle {
+    display: none;
+  }
+  .navbarTitle {
+    font-size: 1.5rem;
+    padding-left: 0;
+  }
+  .h1-index, .h1-index2 {
+    font-size: 10px;
+  }
+}
 #en_cours {
-  -webkit-text-decoration-color: #FF7D00;
-          text-decoration-color: #FF7D00;
-  -webkit-text-decoration-line: underline;
-          text-decoration-line: underline;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+  text-underline-offset: 8px;
+}
+
+.offcanvas-title {
+  color: #15616D;
+  font-family: "NunitoExtraBoldItalic";
+  font-size: 2rem;
+}
+
+.offcanvasSecondTitle {
+  font-family: "NunitoItalic";
+  font-size: 1rem;
+}
+
+.tomates-offcanvas {
+  width: 400px;
+  height: 300px;
+  margin-left: 1px;
+  margin-top: 1px;
 }
 
 /*INDEX*/
@@ -74,7 +108,7 @@
   text-shadow: rgb(231, 134, 54) 1px 2px 10px;
 }
 
-.title-section {
+.title-section, .titleListPatients {
   font-family: "NunitoBold";
   color: #78290F;
 }
@@ -88,22 +122,122 @@
   color: rgb(43, 131, 91);
 }
 
-/*Ajouter une recette*/
-.addTitle {
+.photo-profil {
+  border-radius: 50%;
+}
+
+/*AJOUTER UNE RECETTE*/
+.addTitle, .title-form, .connexion-title, .recettes-title {
   font-family: "NunitoItalic";
   font-size: 3rem;
   font-weight: 500;
+  padding-bottom: 2rem;
   text-align: center;
   border-radius: 2px;
   color: rgb(231, 134, 54);
   text-shadow: rgb(231, 134, 54) 1px 2px 10px;
 }
 
+/*RECETTES*/
+.recetteLittleTitle::before {
+  content: "";
+  width: 50px;
+  height: 50px;
+  background-image: url("photos/tomates.jpg") no-repeat;
+  display: inline-block;
+  vertical-align: -5px;
+}
+
+.titleRecettesReservees, .profil {
+  font-family: "NunitoBold";
+  color: rgb(231, 134, 54);
+}
+
+/*CONTACT*/
+.form {
+  width: 500px;
+  margin: auto;
+  padding: 10px;
+}
+
+.button, .form-label {
+  font-family: "Nunito";
+}
+
+.border {
+  margin-left: 500px;
+  margin-right: 500px;
+  margin-bottom: 80px;
+}
+
+@media (max-width: 767px) {
+  .border {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+  }
+  h1, p {
+    text-align: center;
+  }
+  .form {
+    width: 350px;
+  }
+}
+@media (max-width: 995px) {
+  .border {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+  }
+  h1, p {
+    text-align: center;
+  }
+  .form {
+    width: 350px;
+  }
+}
+@media (max-width: 1500px) {
+  .border {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+  }
+  h1, p {
+    text-align: center;
+  }
+  .form {
+    width: 350px;
+  }
+}
+.adresse-title {
+  font-family: "Nunito";
+}
+
+/*CONNEXION*/
+.connexion-title::before, .connexion-title::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  background-image: url("../photos/carrottes.png") no-repeat;
+  display: inline-block;
+  vertical-align: -5px;
+}
+
+/* Mentions légales, politique de confidentialité */
+.confidential-title, .mentions-title {
+  font-family: "Nunito";
+  color: #78290F;
+}
+
+p {
+  font-family: "Inter";
+}
+
 /*FOOTER*/
 .footer-clean {
   padding: 50px 0;
   background-color: #15616D;
-  color: #4b4c4d;
+  color: #ccc;
 }
 
 .footer-clean h3 {

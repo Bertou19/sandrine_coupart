@@ -1,4 +1,5 @@
 <?php
+session_id();
 session_start();
 
 $nav_en_cours = 'Politique_de_confidentialité';

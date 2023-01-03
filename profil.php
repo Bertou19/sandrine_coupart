@@ -18,8 +18,8 @@ include_once "includes/navbar.php";
     <h1 class="profil text-center mt-6 text-warning">Bonjour <?= $_SESSION["patient"]["prenom"] ?></h1>
 
     <a href="recettes.php#reservee" class="text-center text-warning text-decoration-none mt-4">
-      Voir mes recettes personnalisées</a>
-
+      Voir mes recettes personnalisées </a>
+    <p class="text-center text-secondary">(Adaptées à votre/vos régime(s) et allergie(s))</p>
     <img class="h-50 w-25 mt-6 ms-10" src="photos/peches.png" alt="peches">
   </div>
 </div>

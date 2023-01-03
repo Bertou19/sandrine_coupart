@@ -70,37 +70,40 @@ include_once "includes/header.php";
 include_once "includes/navbar.php";
 ?>
 
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-sm-5">
+      <h1 class="connexion-title text-center pt-5">Me connecter (admin) :</h1>
+      <?php
+      if (isset($_SESSION["error"])) {
+        foreach ($_SESSION["error"] as $message) {
+      ?>
+          <p><?= $message ?></p>
+      <?php
+        }
+        unset($_SESSION["error"]);
+      }
+      ?>
 
-<div class="row justify-content-center">
-
-  <h1 class="connexion-title text-center pt-5">Me connecter (admin) :</h1>
-  <?php
-  if (isset($_SESSION["error"])) {
-    foreach ($_SESSION["error"] as $message) {
-  ?>
-      <p><?= $message ?></p>
-  <?php
-    }
-    unset($_SESSION["error"]);
-  }
-  ?>
-
-  <div class="container-fluid">
-    <div class="row justify-content-center">
-      <form class="col-md-4 col-sm-5" method="post">
-
-        <div class=" pt-2">
-          <label for="exampleInputEmail1" class="form-label"></label>
-          <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-md-4 col-sm-6">
+            <form class="" method="post">
+              <div class=" pt-2">
+                <label for="exampleInputEmail1" class="form-label"></label>
+                <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+              </div>
+              <div class="w-50 w-2 pt-2">
+                <label for="exampleInputPassword1" class="form-label"></label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
+              </div>
+              <div class="text-center pt-5">
+                <button type="submit" class="button btn btn-warning text-light mb-7">Connexion</button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div class="w-50 w-2 pt-2">
-          <label for="exampleInputPassword1" class="form-label"></label>
-          <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe">
-        </div>
-        <div class="text-center pt-5">
-          <button type="submit" class="button btn btn-warning text-light mb-7">Connexion</button>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>

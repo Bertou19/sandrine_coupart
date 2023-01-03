@@ -55,62 +55,68 @@ include "includes/navbar.php";
 
 
 
+<img class="imgBackgroundRecettes" src="./photos/bgAccueil.jpg" alt="image avec legumes pour cuisiner">
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-sm-10">
+      <div class="bgRecettes mt-2 mb-8 ">
+        <section>
+          <h1 class="recettes-title text-center mt-5">Recettes</h1>
 
-<section>
+          <?php foreach ($recettes as $recette) : ?>
+            <article>
+              <div class="container-fluid">
+                <div class="row justify-content-center">
+                  <div class="col-md-6 col-sm-10">
+                    <h2 class="recetteLittleTitle text-center p-2 mb-3"><a class="text-danger text-decoration-none" href="recette.php?id=<?= $recette["id"] ?>"><?= strip_tags($recette["titre"]) ?></h2>
+                  </div>
+                </div>
+              </div>
+            </article>
+          <?php endforeach; ?>
+        </section>
 
-  <h1 class="recettes-title text-center m-5">Recettes</h1>
+        <section>
+          <?php if ($_SESSION["patient"]) {
+            echo '<h1 id="reservee" class="titleRecettesReservees text-center m-5 text-warning">Vos recettes personnalisées</h1>';
+          } ?>
 
-  <?php foreach ($recettes as $recette) : ?>
-    <article>
-      <div class="container-fluid">
-        <div class="row justify-content-center ">
-          <div class="col-md-5 col-sm-5 ">
+          <?php foreach ($reservees as $reservee) : ?>
+            <?php
 
-            <h2 class="recetteLittleTitle text-center p-2 mb-3 "><a class="text-danger text-decoration-none" href="recette.php?id=<?= $recette["id"] ?>"><?= strip_tags($recette["titre"]) ?></h2>
-    </article>
+            if (($_SESSION["patient"]["regime_vegetarien"] === $reservee["regime_vegetarien"]) && ($_SESSION["patient"]["regime_vegetarien"] === 1) ||
+              ($_SESSION["patient"]["regime_sans_gluten"] === $reservee["regime_sans_gluten"]) && ($_SESSION["patient"]["regime_sans_gluten"] === 1) ||
+              ($_SESSION["patient"]["regime_sans_lactose"] === $reservee["regime_sans_lactose"]) && ($_SESSION["patient"]["regime_sans_lactose"] === 1) ||
+              ($_SESSION["patient"]["regime_sans_sel"] === $reservee["regime_sans_sel"]) && ($_SESSION["patient"]["regime_sans_sel"] === 1)
+            ) {
+              if (
+                ($_SESSION["patient"]["allergie_oeufs"] === 1 && $reservee["oeufs"] === 1) ||
+                ($_SESSION["patient"]["allergie_lait"] === 1 && $reservee["lait"] === 1) ||
+                ($_SESSION["patient"]["allergie_crustaces"] === 1 && $reservee["crustaces"] === 1) ||
+                ($_SESSION["patient"]["allergie_arachides"] === 1 && $reservee["arachides"] === 1) ||
+                ($_SESSION["patient"]["allergie_ble"] === 1 && $reservee["ble"] === 1)
+              ) {
+              } else {
+            ?>
+                <article>
+                  <div class="container-fluid">
+                    <div class="row justify-content-center">
+                      <div class="col-md-6 col-sm-10">
+                        <h2 class="recetteLittleTitle text-center p-2 mb-3"><a class="text-danger text-decoration-none" href="recette.php?id=<?= $reservee["id"] ?>"><?= strip_tags($reservee["titre"]) ?></h2>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+            <?php
+              }
+            }
+            ?>
+          <?php endforeach; ?>
+        </section>
+      </div>
     </div>
-    </div>
-    </div>
-  <?php endforeach; ?>
-</section>
-
-<section>
-  <?php if ($_SESSION["patient"]) {
-    echo '<h1 id="reservee" class="titleRecettesReservees text-center m-5 text-warning">Vos recettes personnalisées</h1>';
-  } ?>
-
-  <?php foreach ($reservees as $reservee) : ?>
-    <?php
-
-    //var_dump($reservee);
-
-    if (($_SESSION["patient"]["regime_vegetarien"] === $reservee["regime_vegetarien"]) && ($_SESSION["patient"]["regime_vegetarien"] === 1) ||
-      ($_SESSION["patient"]["regime_sans_gluten"] === $reservee["regime_sans_gluten"]) && ($_SESSION["patient"]["regime_sans_gluten"] === 1) ||
-      ($_SESSION["patient"]["regime_sans_lactose"] === $reservee["regime_sans_lactose"]) && ($_SESSION["patient"]["regime_sans_lactose"] === 1) ||
-      ($_SESSION["patient"]["regime_sans_sel"] === $reservee["regime_sans_sel"]) && ($_SESSION["patient"]["regime_sans_sel"] === 1)
-    ) {
-      if (
-        ($_SESSION["patient"]["allergie_oeufs"] === 1 && $reservee["oeufs"] === 1) ||
-        ($_SESSION["patient"]["allergie_lait"] === 1 && $reservee["lait"] === 1) ||
-        ($_SESSION["patient"]["allergie_crustaces"] === 1 && $reservee["crustaces"] === 1) ||
-        ($_SESSION["patient"]["allergie_arachides"] === 1 && $reservee["arachides"] === 1) ||
-        ($_SESSION["patient"]["allergie_ble"] === 1 && $reservee["ble"] === 1)
-      ) { // ne pas afficher la recette
-      } else { // s'il n'y a pas d'allergene : afficher la recette
-    ?>
-        <article>
-          <h2 class="recetteLittleTitle text-center p-2 mb-3  "><a class="text-danger text-decoration-none" href="recette.php?id=<?= $reservee["id"] ?>"><?= strip_tags($reservee["titre"]) ?></h2>
-        </article>
-    <?php
-
-      }
-    }
-    ?>
-
-  <?php endforeach; ?>
-</section>
-
-
+  </div>
+</div>
 
 <?php
 //On inclut le footer

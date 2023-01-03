@@ -64,7 +64,7 @@ $arachides = ($_POST["arachides"]);
 $ble = ($_POST["ble"]);
 $id_recette = ($recette["id"]);
 
-//var_dump($recette);
+
 // Formulaire d'avis du patient 
 
 if (!empty($_POST)) {
@@ -112,69 +112,12 @@ include "includes/navbar.php";
 //On écrit le contenu de la page
 
 ?>
-
-
-<article>
-  <h1 class="text-center text-danger mt-5"><?= strip_tags($recette["titre"]) ?></h1>
-
-  <div class="text-center"><?= strip_tags($recette["description"]) ?></div>
-  <div class="text-center">
-    <h5>Temps de préparation :</h5><?= strip_tags($recette["tps_preparation"]) ?>
-  </div>
-  <div class="text-center">
-    <h5>Temps de repos :</h5><?= strip_tags($recette["tps_repos"]) ?>
-  </div>
-  <div class="text-center">
-    <h5>Temps de cuisson :</h5><?= strip_tags($recette["tps_cuisson"]) ?>
-  </div>
-  <div class="text-center">
-    <h5>Ingrédients :</h5><?= strip_tags($recette["ingredients"]) ?>
-  </div>
-  <div class="text-center">
-    <h5>Étapes :</h5><?= strip_tags($recette["etapes"]) ?>
-  </div>
-  <div class="text-center">
-    <h5>Type de régime(s) :</h5><?php if ($recette["regime_vegetarien"] == 1) {
-                                  echo "Regime végétarien";
-                                } ?>
-
-    <div><?php if ($recette["regime_sans_lactose"] == 1) {
-            echo "Regime sans lactose";
-          } ?></div>
-    <div><?php if ($recette["regime_sans_sel"] == 1) {
-            echo "Regime sans sel";
-          } ?></div>
-    <div><?php if ($recette["regime_sans_gluten"] == 1) {
-            echo "Regime sans gluten";
-          } ?></div>
-  </div>
-  <div class="text-center">
-    <h5>Allergène(s) :</h5><?php if ($recette["oeufs"] == 1) {
-                              echo "Oeufs";
-                            } ?>
-
-    <div><?php if ($recette["lait"] == 1) {
-            echo "Lait";
-          } ?></div>
-    <div><?php if ($recette["crustaces"] == 1) {
-            echo "Crustacés";
-          } ?></div>
-    <div><?php if ($recette["arachides"] == 1) {
-            echo "Arachides";
-          } ?></div>
-    <div><?php if ($recette["ble"] == 1) {
-            echo "Blé";
-          } ?></div>
-  </div>
-</article>
-
-<?php
-
-if (isset($_SESSION["patient"])) {
+<div class="text-center mt-3">
+  <?php
 
   if (isset($_SESSION["success"])) {
     foreach ($_SESSION["success"] as $message) {
-?>
+  ?>
       <p><?= $message ?></p>
     <?php
     }
@@ -189,14 +132,81 @@ if (isset($_SESSION["patient"])) {
     unset($_SESSION["error"]);
   }
   ?>
+</div>
+
+<article>
 
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-12 text-md-center">
-        <h1 class="text-aubergine pt-5 text-md-center text-xs-center">Laisser un commentaire</h1>
+    <div class="row justify-content-center">
+      <div class="col-6">
+
+        <h1 class="titreRecette text-center text-danger mt-5"><?= strip_tags($recette["titre"]) ?></h1>
+
+        <div class="text-center mt-4"><?= strip_tags($recette["description"]) ?></div>
+        <div class="text-center">
+          <h5 class="text-secondary mt-4">Temps de préparation :</h5><?= strip_tags($recette["tps_preparation"]) ?>
+        </div>
+        <div class="text-center">
+          <h5 class="text-secondary mt-2">Temps de repos :</h5><?= strip_tags($recette["tps_repos"]) ?>
+        </div>
+        <div class="text-center">
+          <h5 class="text-secondary mt-2">Temps de cuisson :</h5><?= strip_tags($recette["tps_cuisson"]) ?>
+        </div>
+        <div class="text-center">
+          <h5 class="text-secondary mt-2">Ingrédients :</h5><?= strip_tags($recette["ingredients"]) ?>
+        </div>
+        <div class="text-center">
+          <h5 class="text-secondary mt-2">Étapes :</h5><?= strip_tags($recette["etapes"]) ?>
+        </div>
+        <div class="text-center">
+          <h5 class="text-secondary mt-2">Type de régime(s) :</h5><?php if ($recette["regime_vegetarien"] == 1) {
+                                                                    echo "Regime végétarien";
+                                                                  } ?>
+
+          <div><?php if ($recette["regime_sans_lactose"] == 1) {
+                  echo "Regime sans lactose";
+                } ?></div>
+          <div><?php if ($recette["regime_sans_sel"] == 1) {
+                  echo "Regime sans sel";
+                } ?></div>
+          <div><?php if ($recette["regime_sans_gluten"] == 1) {
+                  echo "Regime sans gluten";
+                } ?></div>
+        </div>
+        <div class="text-center">
+          <h5 class="text-secondary mt-2">Allergène(s) :</h5><?php if ($recette["oeufs"] == 1) {
+                                                                echo "Oeufs";
+                                                              } ?>
+
+          <div><?php if ($recette["lait"] == 1) {
+                  echo "Lait";
+                } ?></div>
+          <div><?php if ($recette["crustaces"] == 1) {
+                  echo "Crustacés";
+                } ?></div>
+          <div><?php if ($recette["arachides"] == 1) {
+                  echo "Arachides";
+                } ?></div>
+          <div><?php if ($recette["ble"] == 1) {
+                  echo "Blé";
+                } ?></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</article>
+
+<?php
+if (isset($_SESSION["patient"])) {
+?>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-4 col-sm-6 text-center">
+        <h1 class="commentaireTitle text-warning pt-5">Laisser un commentaire</h1>
 
         <form action="" method="post">
-          <div class="mb-3">
+          <div class="mb-3 p-3">
             <label for="exampleFormControlInput1" class="form-label">Titre</label>
             <input type="text" name="titre" class="form-control" id="exampleFormControlInput1">
           </div>
@@ -205,12 +215,14 @@ if (isset($_SESSION["patient"])) {
             <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
           <div class="stars text-center">
+
             <i class="lar la-star" data-value="1"></i><i class="lar la-star" data-value="2"></i><i class="lar la-star" data-value="3"></i><i class="lar la-star" data-value="4"></i><i class="lar la-star" data-value="5"></i>
           </div>
           <div>
+            <label for="note" class="form-label">Note</label>
             <input type="hidden" name="note" id="note" value="0">
           </div>
-          <button type="submit" class="btn btn-warning">Soumettre l'avis</button>
+          <button type="submit" class="btn btn-warning text-white mt-4">Soumettre l'avis</button>
         </form>
       </div>
     </div>
@@ -236,8 +248,6 @@ $requete = $db->query($sql);
 
 $requete->bindValue(":id", $id, PDO::PARAM_INT);
 
-//On execute la requête
-//$requete->execute();
 
 //On recupère les données
 $commentaires = $requete->fetchAll();
@@ -248,15 +258,24 @@ $commentaires = $requete->fetchAll();
 
 ?>
 
-<h1 class="titleListCommentaires text-center pt-5 mb-5 text-aubergine">Commentaires</h1>
 
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-5">
+      <img class="w-50 h-75 mt-4" src="photos/legumes.png" alt="legumes">
+    </div>
+
+  </div>
+</div>
+
+<h1 class="commentaires text-center mb-5 text-warning">Commentaires</h1>
 <section class="mb-6">
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-md-5 col-sm-5">
 
         <?php foreach ($commentaires as $commentaire) : ?>
-          <h5 class="text-danger text-center ">Titre</h5>
+          <h5 class="text-danger text-center mt-3 ">Titre</h5>
           <div class="text-center"><?= ($commentaire["titre"]) ?></div>
           <h5 class="text-danger text-center">Message</h5>
           <div class="text-center"><?= ($commentaire["message"]) ?></div>
@@ -264,19 +283,29 @@ $commentaires = $requete->fetchAll();
 
 
           <div class="text-center"><?php if ($commentaires["note"] == 1) {
-                                      echo "1";
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
                                     }
                                     if ($commentaire["note"] == 2) {
-                                      echo "2";
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
                                     }
                                     if ($commentaire["note"] == 3) {
-                                      echo "3";
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
                                     }
                                     if ($commentaire["note"] == 4) {
-                                      echo "4";
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
                                     }
                                     if ($commentaire["note"] == 5) {
-                                      echo "5";
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
+                                      echo '<img class="etoileJaune" src="photos/etoileJaune.jpg" alt="étoile jaune"/>';
                                     } ?>
           </div>
         <?php endforeach; ?>

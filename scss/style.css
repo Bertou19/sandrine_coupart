@@ -49,11 +49,15 @@ body {
     display: none;
   }
   .navbarTitle {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     padding-left: 0;
   }
   .h1-index, .h1-index2 {
     font-size: 10px;
+  }
+  .logo {
+    width: 50px;
+    height: 50px;
   }
 }
 #en_cours {
@@ -126,6 +130,24 @@ body {
   border-radius: 50%;
 }
 
+.imgIndex {
+  width: 800px;
+  height: 400px;
+  box-shadow: 10px 10px 10px rgb(155, 155, 155);
+}
+
+@media (max-width: 767px) {
+  .imgIndex {
+    width: 400px;
+    height: 200px;
+  }
+}
+/*AJOUTER UN PATIENT*/
+@media (max-width: 767px) {
+  .addTitle {
+    font-size: 90px;
+  }
+}
 /*AJOUTER UNE RECETTE*/
 .addTitle, .title-form, .connexion-title, .recettes-title {
   font-family: "NunitoItalic";
@@ -138,21 +160,81 @@ body {
   text-shadow: rgb(231, 134, 54) 1px 2px 10px;
 }
 
-/*RECETTES*/
-.recetteLittleTitle::before {
-  content: "";
-  width: 50px;
-  height: 50px;
-  background-image: url("photos/tomates.jpg") no-repeat;
-  display: inline-block;
-  vertical-align: -5px;
+/*RECETTE*/
+.titreRecette, .commentaires, .commentaireTitle {
+  font-family: "NunitoItalic";
+  font-size: 3rem;
+  font-weight: 500;
 }
 
+@media (max-width: 767px) {
+  .commentaireTitle, .commentaires {
+    font-size: 30px;
+  }
+}
+.etoileJaune {
+  height: 20px;
+  width: 20px;
+  display: inline;
+}
+
+/*RECETTES*/
 .titleRecettesReservees, .profil {
   font-family: "NunitoBold";
   color: rgb(231, 134, 54);
 }
 
+.recetteLittleTitle {
+  font-family: "NunitoItalic";
+}
+
+.imgBackgroundRecettes {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.bgRecettes {
+  top: 200px;
+  border-radius: 50px;
+  width: 50%;
+  position: absolute;
+  display: block;
+  border: dashed rgb(231, 134, 54);
+  background-color: #FFECD1;
+  margin: auto;
+}
+
+@media (max-width: 767px) {
+  .bgRecettes {
+    position: unset;
+    margin-top: 100px;
+    margin-bottom: 200px;
+    width: 100%;
+  }
+  .imgBackgroundRecettes {
+    width: 0;
+    height: 0;
+  }
+  .titleRecettesReservees {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 995px) {
+  .bgRecettes {
+    position: unset;
+    margin-top: 100px;
+    margin-bottom: 200px;
+    width: 100%;
+  }
+  .imgBackgroundRecettes {
+    width: 0;
+    height: 0;
+  }
+}
 /*CONTACT*/
 .form {
   width: 500px;
@@ -218,7 +300,8 @@ body {
   content: "";
   width: 50px;
   height: 50px;
-  background-image: url("../photos/carrottes.png") no-repeat;
+  background-image: url("../photos/carrottes.png");
+  background-repeat: no-repeat;
   display: inline-block;
   vertical-align: -5px;
 }

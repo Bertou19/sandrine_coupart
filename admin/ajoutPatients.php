@@ -263,14 +263,13 @@ $patients = $requete->fetchAll();
 
 ?>
 
-<h1 class="titleListPatients text-center pt-5 mb-5">Liste des patients inscrits</h1>
+<h1 class="titleListPatients text-warning text-center pt-5 mb-5">Liste des patients inscrits</h1>
 
 <section class="mb-6">
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <div class="col-md-5 col-sm-5">
-
-        <table class="table-responsive table-warning table table-striped ">
+      <div class="col-md-8 col-sm-10 table-responsive">
+        <table class="table table-warning table-striped">
           <thead>
             <tr>
               <th></th>
@@ -284,51 +283,44 @@ $patients = $requete->fetchAll();
           </thead>
           <?php foreach ($patients as $patient) : ?>
             <tbody>
-
               <tr>
                 <th scope="row"></th>
-
                 <td class="text-center"><?= strip_tags($patient["nom"]) ?></td>
                 <td class="text-center"><?= strip_tags($patient["prenom"]) ?></td>
                 <td class="text-center"><?= strip_tags($patient["email"]) ?></td>
                 <td class="text-center"><?= strip_tags($patient["ville"]) ?></td>
                 <td class="text-center"><?php if ($patient["regime_vegetarien"] == 1) {
-                                          echo "Végétarien;";
+                                          echo "Végétarien   ";
                                         }
                                         if ($patient["regime_sans_lactose"] == 1) {
-                                          echo "Sans lactose;";
+                                          echo "Sans lactose   ";
                                         }
                                         if ($patient["regime_sans_sel"] == 1) {
-                                          echo "Sans sel;";
+                                          echo "Sans sel   ";
                                         }
                                         if ($patient["regime_sans_gluten"] == 1) {
-                                          echo "Sans gluten;";
+                                          echo "Sans gluten   ";
                                         } ?></td>
                 <td class="text-center"><?php if ($patient["allergie_oeufs"] == 1) {
-                                          echo "Oeufs;";
+                                          echo "Oeufs   ";
                                         }
                                         if ($patient["allergie_lait"] == 1) {
-                                          echo "Lait;";
+                                          echo "Lait   ";
                                         }
                                         if ($patient["allergie_crustaces"] == 1) {
-                                          echo "Crustacés;";
+                                          echo "Crustacés   ";
                                         }
                                         if ($patient["allergie_arachides"] == 1) {
-                                          echo "Arachides;";
+                                          echo "Arachides   ";
                                         }
                                         if ($patient["allergie_ble"] == 1) {
-                                          echo "Blé;";
+                                          echo "Blé   ";
                                         }
                                         ?></td>
-
-
               </tr>
             </tbody>
           <?php endforeach; ?>
         </table>
-
-
-
       </div>
     </div>
   </div>

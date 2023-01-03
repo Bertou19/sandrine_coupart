@@ -56,6 +56,20 @@ $nav_en_cours = 'Index';
   </div>
 </section>
 
+<section>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-sm-4">
+        <img class="imgIndex mt-8 mb-6 border border-info" src="../photos/pommesdeterre.jpg" alt="pommes de terres">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
 <?php
 // On inclut le footer
 @include_once "includes/footer.php";

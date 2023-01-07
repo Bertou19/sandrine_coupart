@@ -139,8 +139,16 @@ include "includes/navbar.php";
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-6">
+        <img class="img-recette w-50 h-100 mt-4 position-absolute opacity-25" src="photos/legumes.png" alt="legumes">
+      </div>
+    </div>
+  </div>
 
-        <h1 class="titreRecette text-center text-danger mt-5"><?= strip_tags($recette["titre"]) ?></h1>
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-6">
+
+        <h1 class="titreRecette text-center text-danger"><?= strip_tags($recette["titre"]) ?></h1>
 
         <div class="text-center mt-4"><?= strip_tags($recette["description"]) ?></div>
         <div class="text-center">
@@ -203,7 +211,7 @@ if (isset($_SESSION["patient"])) {
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-4 col-sm-6 text-center">
-        <h1 class="commentaireTitle text-warning pt-5">Laisser un commentaire</h1>
+        <h1 class="commentaireTitle text-warning pt-5 mt-3">Laisser un commentaire</h1>
 
         <form action="" method="post">
           <div class="mb-3 p-3">
@@ -259,16 +267,7 @@ $commentaires = $requete->fetchAll();
 ?>
 
 
-<div class="container-fluid">
-  <div class="row justify-content-center">
-    <div class="col-5">
-      <img class="w-50 h-75 mt-4" src="photos/legumes.png" alt="legumes">
-    </div>
-
-  </div>
-</div>
-
-<h1 class="commentaires text-center mb-5 text-warning">Commentaires</h1>
+<h1 class="commentaires text-center mb-5 text-warning mt-7">Commentaires</h1>
 <section class="mb-6">
   <div class="container-fluid">
     <div class="row justify-content-center">

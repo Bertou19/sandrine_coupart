@@ -41,10 +41,10 @@ if (!empty($_POST)) {
       $patient = $query->fetch();
 
       if (!$patient) {
-        $_SESSION["error"][] = ["L'utilisateur et/ou le mot de passe est incorrect"];
+        $_SESSION["error"] = ["L'utilisateur et/ou le mot de passe est incorrect"];
       }
       if (!password_verify($_POST["password"], $patient["password"])) {
-        $_SESSION["error"][] = ["L'utilisateur et/ou le mot de passe est incorrect"];
+        $_SESSION["error"] = ["L'utilisateur et/ou le mot de passe est incorrect"];
       }
       //Ici l'utilsateur et le mot de passe sont corrects
       //On va pouvoir "connecter" l'utilisateur

@@ -13,3 +13,5 @@ Pour pouvoir tester les fonctionnalités réservées à l’administrateur du si
 Effectivement je n’ai pas permis la création d’un admin pour la back office. Je l’ai créée en amont directement dans la base de données.
 La création du patient, par contre,est possible(à partir du compte admin).
 Sinon vous pouvez utiliser mon adresse mail et mon mot de passe, qui se trouvent également dans ma copie.
+
+Merci.

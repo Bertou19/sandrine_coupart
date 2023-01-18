@@ -9,5 +9,7 @@ Si il y a une base de données , il faut transferer aussi sa base de données en
 
 Création d'un administrateur pour le back office :
 
-Creer une adresse mail valide et un mot de passe et le rentrer dans la base de données dans la table "user", celui ci pourra alors se connecter au site 
-et avoir accès à des fonctionnalités permettant de gerer le back office.
+Pour pouvoir tester les fonctionnalités réservées à l’administrateur du site, il faut rentrer l'adresse mail et le mot de passe qui se trouvent dans les informations complémentaires, à la fin de ma copie. 
+Effectivement je n’ai pas permis la création d’un admin pour la back office. Je l’ai créée en amont directement dans la base de données.
+Pour le patient par contre cela est possible(à partir du compte admin).
+Sinon vous pouvez utiliser mon adresse mail et mon mot de passe, qui se trouvent également dans ma copie.

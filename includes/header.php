@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta description="">
+  <meta description="Sandrine Coupart, Diététicienne-nutritionniste. Je vous propose de découvrir des recettes savoureuses personnalisées et 
+                     adaptées à votre régime.">
 
 
   <link rel="stylesheet" href="../scss/bootstrap.css">

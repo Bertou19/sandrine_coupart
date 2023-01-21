@@ -58,7 +58,7 @@ if (!empty($_POST)) {
 
         //On redirige vers la page d'accueil
         header("Location: /index.php");
-        print_r($_SESSION["user"]);
+        
       }
     }
   }

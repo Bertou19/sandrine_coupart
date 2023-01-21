@@ -74,6 +74,7 @@ include_once "includes/navbar.php";
   <div class="row justify-content-center">
     <div class="col-md-8 col-sm-5">
       <h1 class="connexion-title text-center pt-5">Me connecter (admin) :</h1>
+      <div class="text-center">
       <?php
       if (isset($_SESSION["error"])) {
         foreach ($_SESSION["error"] as $message) {
@@ -84,7 +85,10 @@ include_once "includes/navbar.php";
         unset($_SESSION["error"]);
       }
       ?>
-
+      </div>
+      </div>
+    </div>
+</div>
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="col-md-4 col-sm-6">
